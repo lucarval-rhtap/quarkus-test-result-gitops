@@ -30,7 +30,7 @@ echo "Test file: ${TEST_FILE}"
 # https://github.com/in-toto/attestation/blob/main/spec/predicates/test-result.md
 cat >> predicate.json <<EOF
 {
-    "result": "PASSED",
+    "result": "FAILED",
     "configuration": [{
         "name": "hack/test-development-image.sh",
         "downloadLocation": "${GIT_URL}/blob/${GIT_COMMIT}/${TEST_FILE}",
@@ -43,7 +43,9 @@ cat >> predicate.json <<EOF
         "test 02"
     ],
     "warnedTests": [],
-    "failedTests": []
+    "failedTests": [
+        "test 03"
+    ]
 }
 EOF
 
