@@ -1,0 +1,23 @@
+sources:
+  - policy:
+      - github.com/lcarva/ec-policies//policy/lib?ref=test-results-att
+      - github.com/lcarva/ec-policies//policy/release?ref=test-results-att
+    ruleData:
+      test_result_sigstore_opts:
+        ignore_rekor: true
+        public_key: |
+          -----BEGIN PUBLIC KEY-----
+          MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE3tYCo2NP7Lb3FKqnTPPG0iJQ2Ian
+          wuDf44nOMOxJlEBvZDdu1g0FcqCuYsN7P4xOuCM3QO20mT0G2W7tXC8XnQ==
+          -----END PUBLIC KEY-----
+        certificate_identity: ''
+        certificate_identity_regexp: ''
+        certificate_oidc_issuer: ''
+        certificate_oidc_issuer_regexp: ''
+        rekor_url: ''
+    config:
+      include:
+        - '@slsa3'
+        - test_results
+      exclude:
+        - slsa_source_correlated
